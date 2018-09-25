@@ -121,10 +121,13 @@ node index.js
 ### II.2.B) Create a End User
 
 * And now, start to test the API with cURL (or Postman)
+Here for the examples below, we have launched => launch.bash  
+(=Production with https, please set if need be the db in the config/production.js file if need be)
+By default, you will use my mLab database and the server is launched on the port 2802)
 
 ```
 # In HTTP, create anew account with the following command
-curl -i -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","email":"nic.foatai@gmail.com","password":"1234"}'
+curl -i -H 'Content-Type: application/json'  -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","email":"nic.foatai@gmail.com","password":"1234"}'
   
 # In HTTPs, use the same command but add --cacert <./security/file.cer> , --insecure and use https
 curl -i --cacert ./security/server.cer --insecure -H 'Content-Type: application/json' -i -X POST https://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","email":"nic.foatai@gmail.com","password":"1234"}'
@@ -185,6 +188,7 @@ Connection: keep-alive
 ```
 
 ### II.2.D) Add a price without GST and the total amount (here AUD,no need of currency)
+
 
 ```
 curl -i --cacert ./security/server.cer --insecure -H 'Content-Type: application/json' -H 'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmE4ODE5NzBhMzlkZjQxM2EyY2E5OTUiLCJpYXQiOjE1Mzc3NzA0NzJ9.Lq2xNmBJzR_oiaZUSZCU8qHUgD5aI5Kfnz5EKU7GOgU' -X POST https://localhost:2802/api/v1/prices/ -d '{"price":100.23}'
@@ -343,6 +347,22 @@ Connection: keep-alive
 Remark: to check redo the GET request or go into the DB
 
 
+### II.2.I) Compute just the tax and total from a price
+
+No need to be logged
+
+curl -i --cacert ./security/server.cer --insecure -H 'Content-Type: application/json' -X GET https://localhost:2802/api/v1/prices/calc/ -d '{"price":100.23}'
+
+
+### II.2.J) Compute the tax and the total from a price and UPDATE the price document
+
+curl -i --cacert ./security/server.cer --insecure -H 'Content-Type: application/json' -H 'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmFhNWM1NTI1Njc4MjE1MDI4NTUwYzkiLCJpYXQiOjE1Mzc4OTE0NjN9.x_0mCm42IjgZ38ib0aisWOizgz48eQS3YtqfZAojufc' -X GET https://localhost:2802/api/v1/prices/<OBJECT_ID>/calc/ -d '{"price":100.23}'
+
+
+For information, I did not put all the possibilities of the backend.
+Indeed, when you a register a new user, you can add the field isAdmin:true for managing all the tenants and do others stuffs.
+
+
 To Do:
 - double certificates between front-end and back-end
 - load balancers between backend <-> db and between front-end <-> backend
@@ -363,3 +383,22 @@ To Do:
 
 
 openssl req -x509 -newkey rsa:4096 -keyout server_key.pem -out server_cert.pem -nodes -days 365 -subj "/CN=localhost/O=Client\ Certificate\ Demo"
+
+
+
+
+II.3) The Front-End
+-------------------
+
+For testint the front-end, please relaunch the backend with the launch.http.bash
+Indeed, the double authentication between frontend and backend is not done.
+
+Then, configure the environements links within the environement folder according you ip addresses.
+
+At last launch angular-cli or do a simple ng serve --host <ip> --port <port> for your tests
+
+NB: The front end oes not have a clean code, it has been developped the last two days
+
+
+Enjoy playing with them
+

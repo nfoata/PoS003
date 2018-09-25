@@ -32,7 +32,7 @@ router.post( '/' , asyncMiddleware( async (req,res) => {
   if (!validPassword) {
     return res.status(400).send("Invalid email or password");
   }
-  const payload = { _id: document._id };
+  const payload = { _id: document._id , isAdmin: document.isAdmin};
   const token = jwt.sign(payload, config.get('jwtPrivateKey'));
   res.status(200).send({token: token});
 }));

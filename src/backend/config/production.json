@@ -4,11 +4,6 @@
     "version": "v1",
     "port"   : 2802,
 
-    "mongodb":{
-        "hostname": "localhost",
-        "database": "prices"
-    },
-
     "jwtPrivateKey":"?S*mpl€Key_",
     "db":"mongodb://nfoata:Australia_2018_06@ds161391.mlab.com:61391/exos"
 }
