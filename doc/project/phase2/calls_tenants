@@ -1,0 +1,101 @@
+echo "########################################################################"
+echo "#                           POST on TENANTS                            #"
+echo "#                                                                      #"
+echo "########################################################################"
+
+
+echo "Step I.1) Test the POST verb to add a new tenant but make a mistake on the firstname (absent)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"lastname":"FOATA","email":"nicolas.foata@gmail.com","password":"1234"}'
+echo
+echo
+
+echo "Step I.2) Test the POST verb to add a new tenant but make a mistake on the firstname (null)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":null,"lastname":"FOATA","email":"nicolas.foata@gmail.com","password":"1234"}'
+echo
+echo
+
+echo "Step I.3) Test the POST verb to add a new tenant but make a mistake on the firstname (empty)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"","lastname":"FOATA","email":"nicolas.foata@gmail.com","password":"1234"}'
+echo
+echo
+
+echo "Step I.4) Test the POST verb to add a new tenant but make a mistake on the firstname (too short)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"N","lastname":"FOATA","email":"nicolas.foata@gmail.com","password":"1234"}'
+echo
+echo
+
+
+
+
+echo "Step II.1) Test the POST verb to add a new tenant but make a mistake on the lastname (absent)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","email":"nicolas.foata@gmail.com","password":"1234"}'
+echo
+echo
+
+echo "Step II.2) Test the POST verb to add a new tenant but make a mistake on the lastname (null)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":null,"email":"nicolas.foata@gmail.com","password":"1234"}'
+echo
+echo
+
+echo "Step II.3) Test the POST verb to add a new tenant but make a mistake on the lastname (empty)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"","email":"nicolas.foata@gmail.com","password":"1234"}'
+echo
+echo
+
+echo "Step II.4) Test the POST verb to add a new tenant but make a mistake on the lastname (too short)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"F","email":"nicolas.foata@gmail.com","password":"1234"}'
+echo
+echo
+
+
+
+echo "Step III.1) Test the POST verb to add a new tenant but make a mistake on the email (absent)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","password":"1234"}'
+echo
+echo
+
+echo "Step III.2) Test the POST verb to add a new tenant but make a mistake on the email (null)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","email":null,"password":"1234"}'
+echo
+echo
+
+echo "Step III.3) Test the POST verb to add a new tenant but make a mistake on the email (empty)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","email":"","password":"1234"}'
+echo
+echo
+
+echo "Step III.4) Test the POST verb to add a new tenant but make a mistake on the email (invalid)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","email":"nicolas.foatagmail.com","password":"1234"}'
+echo
+echo
+
+
+
+echo "Step IV.1) Test the POST verb to add a new tenant but make a mistake on the password (absent)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","email":"nicolas.foata@gmail.com"}'
+echo
+echo
+
+echo "Step IV.2) Test the POST verb to add a new tenant but make a mistake on the password (null)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","email":"nicolas.foata@gmail.com","password":null}'
+echo
+echo
+
+echo "Step IV.3) Test the POST verb to add a new tenant but make a mistake on the password (empty)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","email":"nicolas.foata@gmail.com","password":""}'
+echo
+echo
+
+echo "Step IV.4) Test the POST verb to add a new tenant but make a mistake on the password (invalid)"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","email":"nicolas.foata@gmail.com","password":"1234"}'
+echo
+echo
+
+
+echo "Step V.I) Test the POST verb to add a new tenant "
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/tenants/ -d '{"firstname":"Nicolas","lastname":"FOATA","email":"nicolas.foatai@gmail.com","password":"1234"}'
+echo
+echo
+
+#x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmEyZWRhNjA5NjRjNDFjNjRkMWE3ZjUiLCJpYXQiOjE1Mzc0MDQzMjZ9.NP4vnoMDmHw9NA35aYLSAvtT4Er2_FVxzzg8GAA5aKY
+#{"_id":"5ba2eda60964c41c64d1a7f5","firstname":"Nicolas","lastname":"FOATA","email":"nicolas.foatai@gmail.com","password":"$2b$10$bFuEpwGatoWkeFeDF.uqn.qEtKzwTAegPrKeId0Zh8kZJC04kUsH6","creationDate":"2018-09-20T00:45:26.498Z","lastModificationDate":"2018-09-20T00:45:26.498Z","__v":0}

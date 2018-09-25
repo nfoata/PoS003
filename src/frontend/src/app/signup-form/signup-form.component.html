@@ -1,0 +1,181 @@
+<div class="signin-container" align="center">
+<form [formGroup]="signupForm" (ngSubmit)="submitSignup()">
+
+        <div class="alert alert-danger" *ngIf="isInvalid">
+                You cannot sign up. Invalid account.
+            </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <mat-label for="lastname">Lastname</mat-label>
+            <input matInput formControlName="lastname" id="lastname" type="text">
+            <mat-error *ngIf="lastname.touched && !lastname.valid && lastname.errors.required">Lastname is required</mat-error>
+            <mat-error *ngIf="lastname.touched && !lastname.valid && lastname.errors.minlength">Lastname should have at
+                least
+                {{lastname.errors.minlength.requiredLength}}
+                letters (ascii)</mat-error>
+            <mat-error *ngIf="lastname.touched && !lastname.valid && lastname.errors.maxlength">Lastname should have at
+                maximum
+                {{lastname.errors.maxlength.requiredLength}} letters (ascii)</mat-error>
+            <mat-error *ngIf="lastname.touched && !lastname.valid && lastname.errors.pattern">Lastname does not match
+                the pattern "[A-Za-z ']+"</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <mat-label for="firstname">firstname</mat-label>
+            <input matInput formControlName="firstname" id="firstname" type="text">
+            <mat-error *ngIf="firstname.touched && !firstname.valid && firstname.errors.required">firstname is required</mat-error>
+            <mat-error *ngIf="firstname.touched && !firstname.valid && firstname.errors.minlength">firstname should
+                have at least
+                {{firstname.errors.minlength.requiredLength}}
+                letters (ascii)</mat-error>
+            <mat-error *ngIf="firstname.touched && !firstname.valid && firstname.errors.maxlength">firstname should
+                have at maximum
+                {{firstname.errors.maxlength.requiredLength}} letters (ascii)</mat-error>
+            <mat-error *ngIf="firstname.touched && !firstname.valid && firstname.errors.pattern">firstname does not
+                match the pattern "[A-Za-z ']+"</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <mat-label for="email">E-mail</mat-label>
+            <input matInput formControlName="email" id="email" type="text">
+            <div *ngIf="email.pending">Checking for the uniqueness</div>
+
+            <mat-error *ngIf="email.touched && !email.valid && email.errors.required">E-mail is required</mat-error>
+            <mat-error *ngIf="email.touched && !email.valid && email.errors.minlength">E-mail should have at least
+                {{email.errors.minlength.requiredLength}}
+                letters (ascii)</mat-error>
+            <mat-error *ngIf="email.touched && !email.valid && email.errors.maxlength">E-mail should have at maximum
+                {{email.errors.maxlength.requiredLength}} letters (ascii)</mat-error>
+            <mat-error *ngIf="email.touched && !email.valid && email.errors.pattern">E-mail does not match the pattern
+                "[A-Za-z ']+"</mat-error>
+            <mat-error *ngIf="email.touched && !email.valid && email.errors.shouldBeUnique">E-mail already exists in
+                the database</mat-error>
+        </mat-form-field>
+    </div>
+
+
+    <div class="form-group">
+        <mat-form-field>
+        <mat-label for="password">Password</mat-label>
+        <input matInput formControlName="password" id="password" type="text" class="form-control">
+      
+        <mat-error *ngIf="password.touched && password.invalid && password.errors.required">Password is required</mat-error>
+        <mat-error *ngIf="password.touched && password.invalid && password.errors.minlength">Password should have at least
+            {{password.errors.minlength.requiredLength}}
+            characters</mat-error>
+        <mat-error *ngIf="password.touched && password.invalid && password.errors.maxlength">Password should have at maximum
+            {{password.errors.maxlength.requiredLength}} characters</mat-error>
+        <mat-error *ngIf="password.touched && password.invalid && !password.errors.containsAtLeastALowerCase">Password has to contain at least a lower case"</mat-error>
+        <mat-error *ngIf="password.touched && password.invalid && !password.errors.containsAtLeastAnUpperCase">Password has to contain at least an upper case"</mat-error>
+        <mat-error *ngIf="password.touched && password.invalid && !password.errors.containsAtLeastADigit">Password has to contain at least a digit"</mat-error>
+    </mat-form-field>
+    </div>
+    <br/>
+    <button matButton type="submit">Sign Up</button>
+</form>
+  </div>  
+    
+    <!--   
+          <div class="alert alert-danger" *ngIf="firstname.touched && !firstname.valid">First name is not valid</div>
+          
+         
+          
+          <label for="password">Choose your password:</label>
+          <input required minlength="8" maxlength="100" [(ngModel)]="password" name="password" id="password" type="password" class="form-control" />
+          <div class="alert alert-danger" *ngIf="password.touched && !password.valid">Password is not valid</div>
+          
+          
+          <label for="rpassword">Repeat your password:</label>
+          <input [(ngModel)]="rpassword" name="rpassword"  type="password" class="form-control" />
+          <div class="alert alert-danger" *ngIf="rpassword.touched && !rpassword.valid">... is not valid</div>
+          
+        -->
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+ <mat-form-field>
+                      <mat-label for="firstname">First name:</mat-label>
+                      <input matInput required minlength="2" maxlength="100" pattern="[A-Za-z ']+" ngModel #firstname="ngModel" name="firstname"
+                        id="firstname" type="text" class="form-control" />
+                     <mat-error *ngIf="firstname.touched && !firstname.valid && firstname.errors.required">
+                            Please enter your firstname (required)
+                          </mat-error>
+                          <mat-error *ngIf="firstname.touched && !firstname.valid && firstname.errors.minlength">
+                            firstname should have at least
+                            {{firstname.errors.minlength.requiredLength}}
+                            letters (ascii)
+                          </mat-error>
+                          <mat-error *ngIf="firstname.touched && !firstname.valid && firstname.errors.maxlength">
+                            firstname should have at maximum
+                            {{firstname.errors.maxlength.requiredLength}} letters (ascii)
+                          </mat-error>
+                          <mat-error *ngIf="firstname.touched && !firstname.valid && firstname.errors.pattern">
+                            firstname does not match the pattern "[A-Za-z ']+"
+                          </mat-error>
+                        </mat-form-field>
+                
+                        <br/>
+        
+        
+                        <mat-form-field>
+                          <mat-label for="email">E-mail:</mat-label>
+                          <input matInput required minlength="5" maxlength="100" pattern="[A-Za-z +\-.]+@[A-Za-z +\-.]+[.][A-Za-z +\-.]+"
+                            ngModel #email="ngModel" name="email" id="email" type="text" />
+                         <mat-error *ngIf="email.touched && !email.valid && email.errors.required">
+                            Please enter your email (required)
+                          </mat-error>
+                          <mat-error *ngIf="email.touched && !email.valid && email.errors.minlength">
+                            E-mail should have at least
+                            {{email.errors.minlength.requiredLength}}
+                            letters (ascii)
+                          </mat-error>
+                          <mat-error *ngIf="email.touched && !email.valid && email.errors.maxlength">
+                            E-mail should have at maximum
+                            {{email.errors.maxlength.requiredLength}} letters (ascii)
+                          </mat-error>
+                          <mat-error *ngIf="email.touched && !email.valid && email.errors.pattern">
+                            E-mail does not match the pattern "[A-Za-z +\-.]+@[A-Za-z +\-.]+[.][A-Za-z +\-.]+"
+                          </mat-error>
+                        </mat-form-field>
+        
+                        <br/>
+        
+                        <mat-form-field>
+                            <mat-label for="password">Password:</mat-label>
+                            <input matInput required minlength="8" maxlength="100" 
+                              ngModel #password="ngModel" name="password" id="password" type="password" />
+                           <mat-error *ngIf="password.touched && !password.valid && password.errors.required">
+                              Please enter your password (required)
+                            </mat-error>
+                            <mat-error *ngIf="password.touched && !password.valid && password.errors.minlength">
+                              Password should have at least
+                              {{password.errors.minlength.requiredLength}}
+                              characters
+                            </mat-error>
+                            <mat-error *ngIf="password.touched && !password.valid && password.errors.maxlength">
+                              Password should have at maximum
+                              {{password.errors.maxlength.requiredLength}} characters
+                            </mat-error>
+                          </mat-form-field>
+        
+                        <div>
+                            <button matButton [disabled]="!signupForm.valid">Submit</button>
+                        </div>
+
+-->

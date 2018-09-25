@@ -1,0 +1,97 @@
+<div class="signin-container" align="center">
+
+  <form #priceForm="ngForm" (ngSubmit)="submit(priceForm)">
+    <div ngModelGroup="pricemg" #signin="ngModelGroup">
+      <!-- <div class="alert alert-danger" *ngIf="pricemg.touched && !pricemg.valid">
+        The form is invalid !
+      </div>-->
+      <br />
+      <br />
+      <div>
+        <mat-form-field>
+          <mat-label for="base">Price (base)</mat-label>
+          <input matInput required minlength="1" maxlength="12" pattern="[0-9]{1,10}\.{0,1}[0-9]{0,2}" 
+          [(ngModel)]="base"
+             name="base" id="base" type="text" placeholder="Put a base price, please" />
+             <mat-error></mat-error>
+         
+             <!--    <mat-error *ngIf="base.touched && !base.valid && base.errors.required">
+            Please the price without tax/GST (required)
+          </mat-error>
+          <mat-error *ngIf="base.touched && !base.valid && base.errors.minlength">
+            The price should have at least {{base.errors.minlength.requiredLength}}
+          </mat-error>
+          <mat-error *ngIf="base.touched && !base.valid && base.errors.maxlength">
+            The price should have at maximum
+            {{base.errors.maxlength.requiredLength}} letters (ascii)
+          </mat-error>
+          <mat-error *ngIf="base.touched && !base.valid && base.errors.pattern">
+            The price does not match the price pattern. e.g: 102 or 102. or 102.03
+          </mat-error>-->
+        </mat-form-field>
+
+        &nbsp;
+
+        <mat-form-field>
+          <mat-label for="gst">Taxes (GST: 10%)</mat-label>
+          <input matInput minlength="1" maxlength="12" pattern="[0-9]{1,10}\.{0,1}[0-9]{0,2}" [(ngModel)]="_gst" #g name="g"
+            id="g" type="text" placeholder="Put a gst price,please">
+      <!--    <mat-error *ngIf="base.touched && !g.valid && g.errors.minlength">
+            The price should have at least {{gst.errors.minlength.requiredLength}}
+          </mat-error>
+          <mat-error *ngIf="base.touched && !g.valid && g.errors.maxlength">
+            The price should have at maximum
+            {{g.errors.maxlength.requiredLength}} letters (ascii)
+          </mat-error>
+          <mat-error *ngIf="base.touched && !g.valid && g.errors.pattern">
+            The price does not match the price pattern. e.g: 102 or 102. or 102.03
+          </mat-error>-->
+        </mat-form-field>
+
+        &nbsp;
+
+        <mat-form-field>
+          <mat-label for="total">Total</mat-label>
+          <input matInput minlength="1" maxlength="12" pattern="[0-9]{1,10}\.{0,1}[0-9]{0,2}" [(ngModel)]="_total" #t
+            name="t" id="t" type="text" placeholder="Price with taxes">
+       <!--   <mat-error *ngIf="base.touched && !t.valid && t.errors.minlength">
+            The price should have at least {{gst.errors.minlength.requiredLength}}
+          </mat-error>
+          <mat-error *ngIf="base.touched && !t.valid && t.errors.maxlength">
+            The price should have at maximum
+            {{g.errors.maxlength.requiredLength}} letters (ascii)
+          </mat-error>
+          <mat-error *ngIf="base.touched && !t.valid && t.errors.pattern">
+            The price does not match the price pattern. e.g: 102 or 102. or 102.03
+          </mat-error>-->
+        </mat-form-field>
+
+        <!-- <mat-form-field>
+                <mat-label for="password">Password:</mat-label>
+                <input matInput required minlength="8" maxlength="100" ngModel #password="ngModel" name="password" id="password"
+                  type="password" />
+                <mat-error *ngIf="password.touched && !password.valid && password.errors.required">
+                  Please enter your password (required)
+                </mat-error>
+                <mat-error *ngIf="password.touched && !password.valid && password.errors.minlength">
+                  Password should have at least
+                  {{password.errors.minlength.requiredLength}}
+                  characters
+                </mat-error>
+                <mat-error *ngIf="password.touched && !password.valid && password.errors.maxlength">
+                  Password should have at maximum
+                  {{password.errors.maxlength.requiredLength}} characters
+                </mat-error>
+              </mat-form-field>-->
+        <button matButton type="button" (click)="calculate()" id="calc" name="calc">Calculate Now !</button>
+
+        <div>
+          <button matButton [disabled]="!priceForm.valid">Submit</button>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>

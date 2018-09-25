@@ -1,0 +1,117 @@
+<div class="signin-container" align="center">
+
+    <form #signinForm="ngForm" (ngSubmit)="submit(signinForm)">
+      <div ngModelGroup="signin" #signin="ngModelGroup">
+        
+          <div class="alert alert-danger" *ngIf="signin.touched && !signin.valid">
+              The form is invalid !
+          </div>
+          <br/>
+          <br/>
+    
+          <div>
+
+             <!-- <mat-form-field>
+                <mat-label for="lastName">Last name:</mat-label>
+                <input matInput required minlength="2" maxlength="100" width="100" pattern="[A-Za-z ']+" ngModel #lastName="ngModel"
+                  (change)="log(lastName)" name="lastName" id="lastName" type="text" placeholder="Your lastname" />
+                <mat-error *ngIf="lastName.touched && !lastName.valid && lastName.errors.required">
+                  Please enter your lastname (required)
+                </mat-error>
+                <mat-error *ngIf="lastName.touched && !lastName.valid && lastName.errors.minlength">
+                  Lastname should have at least
+                  {{lastName.errors.minlength.requiredLength}}
+                  letters (ascii)
+                </mat-error>
+                <mat-error *ngIf="lastName.touched && !lastName.valid && lastName.errors.maxlength">
+                  Last name should have at maximum
+                  {{lastName.errors.maxlength.requiredLength}} letters (ascii)
+                </mat-error>
+                <mat-error *ngIf="lastName.touched && !lastName.valid && lastName.errors.pattern">
+                  Last name does not match the pattern "[A-Za-z ']+"
+                </mat-error>
+              </mat-form-field>
+
+              <br/>
+
+                <mat-form-field>
+                  <mat-label for="firstName">First name:</mat-label>
+                  <input matInput required minlength="2" maxlength="100" pattern="[A-Za-z ']+" ngModel #firstName="ngModel" name="firstName"
+                    id="firstName" type="text" class="form-control" />
+                  <mat-error *ngIf="firstName.touched && !firstName.valid && firstName.errors.required">
+                    Please enter your firstname (required)
+                  </mat-error>
+                  <mat-error *ngIf="firstName.touched && !firstName.valid && firstName.errors.minlength">
+                    Firstname should have at least
+                    {{firstName.errors.minlength.requiredLength}}
+                    letters (ascii)
+                  </mat-error>
+                  <mat-error *ngIf="firstName.touched && !firstName.valid && firstName.errors.maxlength">
+                    Firstname should have at maximum
+                    {{firstName.errors.maxlength.requiredLength}} letters (ascii)
+                  </mat-error>
+                  <mat-error *ngIf="firstName.touched && !firstName.valid && firstName.errors.pattern">
+                    Firstname does not match the pattern "[A-Za-z ']+"
+                  </mat-error>
+                </mat-form-field>
+        
+                <br/>
+              -->
+
+                <mat-form-field>
+                  <mat-label for="email">E-mail:</mat-label>
+                  <input matInput required minlength="5" maxlength="100" pattern="[A-Za-z +\-.]+@[A-Za-z +\-.]+[.][A-Za-z +\-.]+"
+                    ngModel #email="ngModel" name="email" id="email" type="text" />
+                  <!--<mat-hint>Please enter your lastname</mat-hint>-->
+                  <mat-error *ngIf="email.touched && !email.valid && email.errors.required">
+                    Please enter your email (required)
+                  </mat-error>
+                  <mat-error *ngIf="email.touched && !email.valid && email.errors.minlength">
+                    E-mail should have at least
+                    {{email.errors.minlength.requiredLength}}
+                    letters (ascii)
+                  </mat-error>
+                  <mat-error *ngIf="email.touched && !email.valid && email.errors.maxlength">
+                    E-mail should have at maximum
+                    {{email.errors.maxlength.requiredLength}} letters (ascii)
+                  </mat-error>
+                  <mat-error *ngIf="email.touched && !email.valid && email.errors.pattern">
+                    E-mail does not match the pattern "[A-Za-z +\-.]+@[A-Za-z +\-.]+[.][A-Za-z +\-.]+"
+                  </mat-error>
+                </mat-form-field>
+
+                <br/>
+
+                <mat-form-field>
+                    <mat-label for="password">Password:</mat-label>
+                    <input matInput required minlength="8" maxlength="100" 
+                      ngModel #password="ngModel" name="password" id="password" type="password" />
+                    <!--<mat-hint>Please enter your lastname</mat-hint>-->
+                    <mat-error *ngIf="password.touched && !password.valid && password.errors.required">
+                      Please enter your password (required)
+                    </mat-error>
+                    <mat-error *ngIf="password.touched && !password.valid && password.errors.minlength">
+                      Password should have at least
+                      {{password.errors.minlength.requiredLength}}
+                      characters
+                    </mat-error>
+                    <mat-error *ngIf="password.touched && !password.valid && password.errors.maxlength">
+                      Password should have at maximum
+                      {{password.errors.maxlength.requiredLength}} characters
+                    </mat-error>
+                  </mat-form-field>
+
+                <div>
+                    <button matButton [disabled]="!signinForm.valid">Submit</button>
+                </div>
+
+          </div>
+          
+      </div>
+
+    </form>
+    
+</div>
+
+
+

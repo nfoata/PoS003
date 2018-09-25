@@ -1,0 +1,12 @@
+
+echo "Step 1) Test the GET request for all elements"
+curl -i -X GET http://localhost:2802/api/v1/prices/
+echo
+echo
+
+echo "Step 2) Test the POST request for a specific element"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/prices/ -d '{"price":124}'
+echo
+echo
+
+curl -H 'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmEyZWRhNjA5NjRjNDFjNjRkMWE3ZjUiLCJpYXQiOjE1Mzc0MDQzMjZ9.NP4vnoMDmHw9NA35aYLSAvtT4Er2_FVxzzg8GAA5aKY' -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/prices/ -d '{"price":130}'

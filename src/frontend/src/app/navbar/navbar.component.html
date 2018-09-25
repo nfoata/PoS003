@@ -1,0 +1,71 @@
+<!--<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="sign-up">Sign-up</a></li>
+        <li routerLinkActive="active"><a routerLink="sign-in">Sign-in</a></li>
+        <li routerLinkActive="active"><a routerLink="change-password">Modify your pasword</a></li>
+        <li routerLinkActive="active"><a routerLink="tenants" [queryParams]="{page:1,pageSize:10}">Tenants</a></li>
+        
+        <li routerLinkActive="active"><a routerLink="posts">Prices</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>-->
+
+<div *ngIf="authService.isLoggedIn()">
+<mat-toolbar color="primary">
+
+    <a _ngcontent-c1="" aria-label="Angular Material" class="docs-button mat-button" mat-button="" routerlink="/" tabindex="0" aria-disabled="false" href="/">
+        <img _ngcontent-c1="" alt="angular" class="docs-angular-logo" src="../../assets/img/angular-white-transparent.svg" >
+    </a>
+
+    
+    
+    <button mat-button routerLink="tenants" [queryParams]="{page:1,pageSize:10}">Tenants</button>
+
+    <button mat-button routerLink="posts" [queryParams]="{page:1,pageSize:10}">Prices</button>
+
+    <button mat-button routerLink="fake" [queryParams]="{page:1,pageSize:10}">Fake prices</button>
+
+    <button mat-button routerLink="/" [queryParams]="{refresh:true}" (click)="authService.logout()">Sign-out</button>
+
+    <!--
+    <button mat-button [matMenuTriggerFor]="menu" >Sign</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="sign-up">Sign-up</button>
+      <button mat-menu-item routerLink="sign-in">Sign-in</button>
+    </mat-menu>-->
+    
+
+<!--
+  <span routerLinkActive="active">
+          <a routerLink="sign-up">Sign-up</a>
+        </span>
+        <span routerLinkActive="active">
+    <a routerLink="sign-in">Sign-in</a>
+  </span>
+  <span routerLinkActive="active">
+    <a routerLink="change-password">Modify your pasword</a>
+  </span>
+  <span routerLinkActive="active">
+    <a routerLink="tenants" [queryParams]="{page:1,pageSize:10}">Tenants</a>
+  </span>
+  <span routerLinkActive="active">
+    <a routerLink="posts">Prices</a>
+  </span>-->
+</mat-toolbar>
+</div>
+
+<div *ngIf="!authService.isLoggedIn()">
+    <mat-toolbar color="primary">
+    <a _ngcontent-c1="" aria-label="Angular Material" class="docs-button mat-button" mat-button="" routerlink="/" tabindex="0" aria-disabled="false" href="/">
+      <img _ngcontent-c1="" alt="angular" class="docs-angular-logo" src="../../assets/img/angular-white-transparent.svg" >
+  </a>
+  <button mat-button [matMenuTriggerFor]="menu" >Sign</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="sign-up">Sign-up</button>
+      <button mat-menu-item routerLink="sign-in">Sign-in</button>
+    </mat-menu>
+  </mat-toolbar>
+</div>

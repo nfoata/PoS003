@@ -1,0 +1,14 @@
+{
+    "app"    : "app",
+    "service": "prices",
+    "version": "v1",
+    "port"   : 2802,
+
+    "mongodb":{
+        "hostname": "localhost",
+        "database": "prices"
+    },
+
+    "jwtPrivateKey":"1234",
+    "db":"mongodb://localhost/exos_test"
+}

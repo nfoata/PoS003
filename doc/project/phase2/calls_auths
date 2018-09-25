@@ -1,0 +1,13 @@
+echo "########################################################################"
+echo "#                           POST on TENANTS                            #"
+echo "#                                                                      #"
+echo "########################################################################"
+
+
+echo "Step V.I) Test the POST verb to have a new token"
+curl -H 'Content-Type: application/json' -i -X POST http://localhost:2802/api/v1/auths/ -d '{"email":"nicolas.foatai@gmail.com","password":"1234"}'
+echo
+echo
+
+#x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmEyZWRhNjA5NjRjNDFjNjRkMWE3ZjUiLCJpYXQiOjE1Mzc0MDQzMjZ9.NP4vnoMDmHw9NA35aYLSAvtT4Er2_FVxzzg8GAA5aKY
+#{"_id":"5ba2eda60964c41c64d1a7f5","firstname":"Nicolas","lastname":"FOATA","email":"nicolas.foatai@gmail.com","password":"$2b$10$bFuEpwGatoWkeFeDF.uqn.qEtKzwTAegPrKeId0Zh8kZJC04kUsH6","creationDate":"2018-09-20T00:45:26.498Z","lastModificationDate":"2018-09-20T00:45:26.498Z","__v":0}

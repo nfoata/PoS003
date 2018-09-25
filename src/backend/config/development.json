@@ -1,0 +1,5 @@
+{
+    "app"    : "app",
+    "service": "prices",
+    "version": "v1"
+}
