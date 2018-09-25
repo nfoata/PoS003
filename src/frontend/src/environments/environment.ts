@@ -7,6 +7,7 @@ export const environment = {
   urls : {
     registration: 'http://192.168.0.107:2802/api/v1/tenants/',
     authentication: 'http://192.168.0.107:2802/api/v1/auths/',
+    tenants: 'http://192.168.0.107:2802/api/v1/tenants',
     prices: 'http://192.168.0.107:2802/api/v1/prices/'
   }
 };

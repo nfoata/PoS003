@@ -75,6 +75,10 @@
         <mat-error *ngIf="password.touched && password.invalid && !password.errors.containsAtLeastADigit">Password has to contain at least a digit"</mat-error>
     </mat-form-field>
     </div>
+
+    <div>
+        <mat-checkbox formControlName="isAdmin" id="isAdmin" >is an administrator</mat-checkbox>
+    </div>
     <br/>
     <button matButton type="submit">Sign Up</button>
 </form>

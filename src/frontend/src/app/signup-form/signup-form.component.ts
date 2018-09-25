@@ -50,7 +50,8 @@ invalidLogin: boolean;
       UsernameValidators.containsAtLeastADigit,
       UsernameValidators.containsAtLeastALowerCase,
       UsernameValidators.containsAtLeastAnUpperCase
-    ])
+    ]),
+    isAdmin: new FormControl('')
   } );
 
   get isInvalid() {

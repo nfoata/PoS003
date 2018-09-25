@@ -19,14 +19,12 @@
     <a _ngcontent-c1="" aria-label="Angular Material" class="docs-button mat-button" mat-button="" routerlink="/" tabindex="0" aria-disabled="false" href="/">
         <img _ngcontent-c1="" alt="angular" class="docs-angular-logo" src="../../assets/img/angular-white-transparent.svg" >
     </a>
-
-    
-    
+  
     <button mat-button routerLink="tenants" [queryParams]="{page:1,pageSize:10}">Tenants</button>
 
-    <button mat-button routerLink="posts" [queryParams]="{page:1,pageSize:10}">Prices</button>
+    <button mat-button routerLink="fake" [queryParams]="{page:1,pageSize:10}">Prices</button>
 
-    <button mat-button routerLink="fake" [queryParams]="{page:1,pageSize:10}">Fake prices</button>
+    <button mat-button routerLink="posts" [queryParams]="{page:1,pageSize:10}">Tests</button>
 
     <button mat-button routerLink="/" [queryParams]="{refresh:true}" (click)="authService.logout()">Sign-out</button>
 

@@ -50,6 +50,15 @@ export class AuthService {
    );
   }
 
+  isAdmin() {
+    /*localStorage.setItem('token', result.token);
+        const jwt = new JwtHelperService();
+        this.currentUser = jwt.decodeToken(localStorage.getItem('token'));
+        return this.currentUser && this.currentUser.isAdmin;
+      */
+    return true;
+  }
+
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('my.firstname');

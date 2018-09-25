@@ -11,11 +11,11 @@
         <mat-form-field>
           <mat-label for="base">Price (base)</mat-label>
           <input matInput required minlength="1" maxlength="12" pattern="[0-9]{1,10}\.{0,1}[0-9]{0,2}" 
-          [(ngModel)]="base"
-             name="base" id="base" type="text" placeholder="Put a base price, please" />
-             <mat-error></mat-error>
+          [(ngModel)]="base" (change)="reset()"
+              name="base" id="base" type="text" placeholder="Put a base price, please" />
+             <mat-error *ngIf="true"></mat-error>
          
-             <!--    <mat-error *ngIf="base.touched && !base.valid && base.errors.required">
+         <!--        <mat-error *ngIf="b.touched && !b.valid && b.errors.required">
             Please the price without tax/GST (required)
           </mat-error>
           <mat-error *ngIf="base.touched && !base.valid && base.errors.minlength">
@@ -83,10 +83,13 @@
                   {{password.errors.maxlength.requiredLength}} characters
                 </mat-error>
               </mat-form-field>-->
-        <button matButton type="button" (click)="calculate()" id="calc" name="calc">Calculate Now !</button>
-
+              <br/>
+              <button matButton type="button" (click)="calculate()" id="calc" name="calc">Compute tax and total</button>&nbsp;
+              <button matButton type="button" (click)="reset()" id="res" name="res">Reset tax and total</button>
+              
         <div>
-          <button matButton [disabled]="!priceForm.valid">Submit</button>
+          <br>
+          <button matButton [disabled]="!priceForm.valid">Add price</button>
         </div>
       </div>
 

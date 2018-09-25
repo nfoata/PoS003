@@ -1,5 +1,12 @@
 <div *ngFor="let tenant of tenants" class="media">
-  <div class="media-left">
+  <li>
+    <ul>ID: {{ tenant._id }}</ul>
+    <ul>Lastname: {{ tenant.lastname }}</ul>
+    <ul>Firstname: {{ tenant.firstname }} </ul>
+    <ul>E-mail: {{ tenant.email }}</ul>
+  </li>
+  <button (click)="deleteTenant(tenant)">Delete</button>
+  <!--<div class="media-left">
     <a href="#">
       <img class="avatar media-object" src="{{ tenant.avatar_url }}" alt="...">
     </a>
@@ -9,5 +16,5 @@
       <a [routerLink]="['/tenants/',tenant.id]">{{ tenant.login }}</a>
     </h4>
     <a href="tenant.html_url">{{ tenant.html_url }}</a>
-  </div>
+  </div>-->
 </div>

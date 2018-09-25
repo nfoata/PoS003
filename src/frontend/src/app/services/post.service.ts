@@ -15,8 +15,6 @@ const httpOptions = {
 })
 export class PostService {
 
-  
-
   private url: string = "http://jsonplaceholder.typicode.com/posts";
 
   constructor(private http: Http) {

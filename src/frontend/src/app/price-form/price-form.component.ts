@@ -50,6 +50,11 @@ export class PriceFormComponent implements OnInit {
     this._total = Number(this.base) + Number(this._gst);
   }
 
+  reset() {
+    this._gst = null;
+    this._total=null;
+  }
+
   /*base() {
     return this._base;
   }*/
